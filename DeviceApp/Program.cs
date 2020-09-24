@@ -6,15 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using SharedLibrary.Models;
 using static SharedLibrary.Models.TemperatureApiModel;
+using SharedLibrary.Services;
 
 namespace DeviceApp
 {
     class Program
     {
 
-        private static DeviceClient deviceClient = DeviceClient.CreateFromConnectionString("HostName=ec-win20iothub.azure-devices.net;DeviceId=DeviceApp;SharedAccessKey=sJGB59/d4EwPyNVxsX/VXWzxQoZkivpeYQUN+Bu7j+k=");
-        private static int telemetryInterval = 5;
-        
+        public static DeviceClient deviceClient = DeviceClient.CreateFromConnectionString("HostName=ec-win20iothub.azure-devices.net;DeviceId=DeviceApp;SharedAccessKey=sJGB59/d4EwPyNVxsX/VXWzxQoZkivpeYQUN+Bu7j+k=");
+        static int telemetryInterval = 5;
 
         static void Main(string[] args)
         {
@@ -23,8 +23,7 @@ namespace DeviceApp
 
             Console.ReadKey();
         }
-
-        private static Task<MethodResponse> SetTelemetryInterval(MethodRequest request, object userContext)
+        public static Task<MethodResponse> SetTelemetryInterval(MethodRequest request, object userContext)
         {
             var payload = Encoding.UTF8.GetString(request.Data).Replace("\"", "");
 
@@ -43,7 +42,7 @@ namespace DeviceApp
             }
         }
 
-        private static async Task SendMessageAsync()
+        public static async Task SendMessageAsync()
         {
             var httpClient = HttpClientFactory.Create();
 
@@ -71,14 +70,12 @@ namespace DeviceApp
                             Temperature = temp,
                             Humidity = humidity
                         };
-
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
-
                 try
                 {
                     var json = JsonConvert.SerializeObject(senddata);                                        // Converterar till Json format.
@@ -89,9 +86,9 @@ namespace DeviceApp
 
                     Console.WriteLine($"Message Sent: {json}");
                 }
-                catch (Exception exx)
+                catch (Exception e)
                 {
-                    Console.WriteLine(exx.Message);
+                    Console.WriteLine(e.Message);
                 }
 
                 await Task.Delay(telemetryInterval * 1000);
