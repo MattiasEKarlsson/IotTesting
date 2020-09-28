@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceApp", "ServiceApp\Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedLibrary", "SharedLibrary\SharedLibrary.csproj", "{92918131-92DA-4BBB-9412-3716B52890E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceApp.Test", "DeviceApp.Test\DeviceApp.Test.csproj", "{71C25A20-4DCA-4764-8026-1C2979D79EF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeviceApp.Test", "DeviceApp.Test\DeviceApp.Test.csproj", "{71C25A20-4DCA-4764-8026-1C2979D79EF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceApp.Test", "ServiceApp.Test\ServiceApp.Test.csproj", "{144C7E42-FC64-4856-BCFB-F4EAADDFACC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{71C25A20-4DCA-4764-8026-1C2979D79EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71C25A20-4DCA-4764-8026-1C2979D79EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71C25A20-4DCA-4764-8026-1C2979D79EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{144C7E42-FC64-4856-BCFB-F4EAADDFACC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144C7E42-FC64-4856-BCFB-F4EAADDFACC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144C7E42-FC64-4856-BCFB-F4EAADDFACC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144C7E42-FC64-4856-BCFB-F4EAADDFACC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
