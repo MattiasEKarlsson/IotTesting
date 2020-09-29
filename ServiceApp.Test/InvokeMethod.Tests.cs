@@ -16,7 +16,6 @@ namespace ServiceApp.Test
 
             Int32.TryParse(payload, out actual);
             Assert.Equal(expected, actual);
-
         }
     }
 }

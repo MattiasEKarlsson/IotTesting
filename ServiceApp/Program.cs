@@ -20,12 +20,10 @@ namespace ServiceApp
         {
             var methodInvocation = new CloudToDeviceMethod(methodName) { ResponseTimeout = TimeSpan.FromSeconds(30) };
             methodInvocation.SetPayloadJson(payload);
-            Console.WriteLine(payload);
 
             var response = await serviceClient.InvokeDeviceMethodAsync(deviceId, methodInvocation);
             Console.WriteLine($"Response Status: {response.Status}");
             Console.WriteLine(response.GetPayloadAsJson());
-
         }
     }
 }

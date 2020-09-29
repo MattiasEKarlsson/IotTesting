@@ -22,7 +22,6 @@ namespace SharedLibrary.Services
             if (Int32.TryParse(payload, out telemetryInterval))
             {
                 Console.WriteLine($"Interval set to: {telemetryInterval} seconds.");
-
                 string json = "{\"result\": \"Executed direct method: " + request.Name + "\"}";
                 return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(json), 200));
             }
@@ -81,7 +80,6 @@ namespace SharedLibrary.Services
                 {
                     Console.WriteLine(e.Message);
                 }
-
                 await Task.Delay(telemetryInterval * 1000);
             }
         }

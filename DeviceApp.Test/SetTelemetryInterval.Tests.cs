@@ -17,15 +17,10 @@ namespace DeviceApp.Test
                 Temperature = 18.31,
                 Humidity = 68
             };
-
             string expected = "{\"Temperature\":18.31,\"Humidity\":68.0}";
             string actual = JsonConvert.SerializeObject(json);
             Assert.Equal(expected, actual);
-
         }
-
-
-
     }
 }
 
