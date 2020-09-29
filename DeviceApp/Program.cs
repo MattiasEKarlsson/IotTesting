@@ -13,9 +13,6 @@ namespace DeviceApp
     class Program
     {
 
-        
-        
-
         static void Main(string[] args)
         {
             DeviceServices.deviceClient.SetMethodHandlerAsync("SetTelemetryInterval", DeviceServices.SetTelemetryInterval, null).Wait();
@@ -24,6 +21,5 @@ namespace DeviceApp
             Console.ReadKey();
         }
 
-        
     }
 }

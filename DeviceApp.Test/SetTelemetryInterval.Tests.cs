@@ -26,27 +26,6 @@ namespace DeviceApp.Test
 
 
 
-        //    public static DeviceClient deviceClient = DeviceClient.CreateFromConnectionString("HostName=ec-win20iothub.azure-devices.net;DeviceId=DeviceApp;SharedAccessKey=sJGB59/d4EwPyNVxsX/VXWzxQoZkivpeYQUN+Bu7j+k=");
-        //    [Theory]
-        //    [InlineData("SetTelemetryInterval", "5", 200)]
-        //    [InlineData("SettTelemetryIterval", "5", 501)]
-        //    public void SetTelemetryInterval_ShouldChangeTheInterval(string methodName, string payload, int statusCode)
-        //    {
-        //        var result = Encoding.UTF8.GetString(request.Data);
-
-        //        int expected = statusCode;
-        //        int actual = ;
-
-
-        //}   }
-
-
-
-
-
-
-
-
     }
 }
 
