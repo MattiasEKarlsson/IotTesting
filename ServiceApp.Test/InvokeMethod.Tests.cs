@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-using SharedLibrary.Models;
 using System;
 using Xunit;
 

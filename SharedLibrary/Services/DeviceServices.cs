@@ -1,4 +1,5 @@
-﻿using Microsoft.Azure.Devices.Client;
+﻿using MAD = Microsoft.Azure.Devices;
+using Microsoft.Azure.Devices.Client;
 using Newtonsoft.Json;
 using SharedLibrary.Models;
 using System;
@@ -12,8 +13,13 @@ namespace SharedLibrary.Services
 {
     public class DeviceServices
     {
+        private static MAD.ServiceClient serviceClient = MAD.ServiceClient.CreateFromConnectionString("HostName=ec-win20iothub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=gpHmAu5J/VlUZ63wn3YdwS4YHa9jpS/1ztgSFZmBd7k=");
+
         public static DeviceClient deviceClient = DeviceClient.CreateFromConnectionString("HostName=ec-win20iothub.azure-devices.net;DeviceId=DeviceApp;SharedAccessKey=sJGB59/d4EwPyNVxsX/VXWzxQoZkivpeYQUN+Bu7j+k=");
+
         static int telemetryInterval = 5;
+
+
 
         public static Task<MethodResponse> SetTelemetryInterval(MethodRequest request, object userContext)
         {
@@ -83,5 +89,16 @@ namespace SharedLibrary.Services
                 await Task.Delay(telemetryInterval * 1000);
             }
         }
+
+        public static async Task InvokeMethod(string deviceId, string methodName, string payload)
+        {
+            var methodInvocation = new MAD.CloudToDeviceMethod(methodName) { ResponseTimeout = TimeSpan.FromSeconds(30) };
+            methodInvocation.SetPayloadJson(payload);
+
+            var response = await serviceClient.InvokeDeviceMethodAsync(deviceId, methodInvocation);
+            Console.WriteLine($"Response Status: {response.Status}");
+            Console.WriteLine(response.GetPayloadAsJson());
+        }
+
     }
 }

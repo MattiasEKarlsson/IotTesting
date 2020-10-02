@@ -1,8 +1,5 @@
-using Microsoft.Azure.Devices.Client;
 using Newtonsoft.Json;
 using SharedLibrary.Models;
-using System;
-using System.Text;
 using Xunit;
 
 namespace DeviceApp.Test
